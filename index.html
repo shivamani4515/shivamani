@@ -1,0 +1,57 @@
+  </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Event Registration Form</h2>
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="event">Select Event</label>
+            <select id="event" name="event" required>
+                <option value="">Choose an event</option>
+                <option value="event1">Event 1</option>
+                <option value="event2">Event 2</option>
+                <option value="event3">Event 3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit">Register</button>
+        </div>
+        <div class="success-message" id="successMessage">Registration successful!</div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const eventSelected = document.getElementById('event').value;
+        
+        // Validate form values (simple validation example)
+        if (name && email && phone && eventSelected) {
+            // Display success message
+            document.getElementById('successMessage').style.display = 'block';
+        } else {
+            alert('Please fill in all fields.');
+        }
+    });
+</script>
+
+</body>
+</html>
